@@ -443,7 +443,8 @@ Returns a set of supported MIME types.
 - [`3mf`](https://en.wikipedia.org/wiki/3D_Manufacturing_Format) - 3D Manufacturing Format
 - [`jxl`](https://en.wikipedia.org/wiki/JPEG_XL) - JPEG XL image format
 - [`dwg`](https://ru.wikipedia.org/wiki/DWG) - a proprietary binary file format used for storing two- and three- dimensional design data and metadata. It is the native format for several CAD packages including DraftSight, AutoCAD, ZWCAD, IntelliCAD (and its variants), Caddie and Open Design Alliance compliant applications
-- [`obj`](https://ru.wikipedia.org/wiki/Wavefront_.obj_file) - a geometry definition file format first developed by Wavefront Technologies for its Advanced Visualizer animation package. The file format is open and has been adopted by other 3D graphics application vendors.
+- [`obj`](https://ru.wikipedia.org/wiki/Wavefront_.obj_file) - a geometry definition file format first developed by Wavefront Technologies for its Advanced Visualizer animation package. The file format is open and has been adopted by other 3D graphics application vendors
+- [`3ds`](https://en.wikipedia.org/wiki/.3ds) - one of the file formats used by the Autodesk 3ds Max 3D modeling, animation and rendering software
 
 _Pull requests are welcome for additional commonly used file types._
 

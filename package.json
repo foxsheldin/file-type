@@ -187,7 +187,8 @@
 		"jxl",
 		"vcf",
 		"dwg",
-		"obj"
+		"obj",
+		"3ds"
 	],
 	"devDependencies": {
 		"@types/node": "^13.1.4",

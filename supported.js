@@ -141,7 +141,8 @@ module.exports = {
 		'jxl',
 		'vcf',
 		'dwg',
-		'obj'
+		'obj',
+		'3ds'
 	],
 	mimeTypes: [
 		'image/jpeg',
@@ -278,6 +279,7 @@ module.exports = {
 		'image/jxl',
 		'application/zstd',
 		'image/vnd.dwg',
-		'model/obj'
+		'model/obj',
+		'image/x-3ds'
 	]
 };

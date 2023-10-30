@@ -1413,6 +1413,13 @@ async function _fromTokenizer(tokenizer) {
 		}
 	}
 
+	if (check([0x4d, 0x4d])) {
+		return {
+			ext: '3ds',
+			mime: 'image/x-3ds'
+		}
+	}
+
 	if (checkString('3ds Max Wavefront OBJ Exporter', { offset: 2 })) {
 		return {
 			ext: 'obj',

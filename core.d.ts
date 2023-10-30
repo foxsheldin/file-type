@@ -143,7 +143,8 @@ declare namespace core {
 		| 'jxl'
 		| 'vcf'
 		| 'dwg'
-		| 'obj';
+		| 'obj'
+		| '3ds';
 
 	type MimeType =
 		| 'image/jpeg'
@@ -280,7 +281,8 @@ declare namespace core {
 		| 'image/jxl'
 		| 'application/zstd'
 		| 'image/vnd.dwg'
-		| 'model/obj';
+		| 'model/obj'
+		| 'image/x-3ds';
 
 	interface FileTypeResult {
 		/**
