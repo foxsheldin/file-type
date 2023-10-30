@@ -2,7 +2,7 @@
 
 > Detect the file type of a Buffer/Uint8Array/ArrayBuffer
 
-The file type is detected by checking the [magic number](https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files) of the buffer.
+The file type is detected by checking the [magic number](<https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files>) of the buffer.
 
 This package is for detecting binary-based file formats, not text-based formats like `.txt`, `.csv`, `.svg`, etc.
 
@@ -49,10 +49,10 @@ $ npm install file-type
 Determine file type from a file:
 
 ```js
-const FileType = require('file-type');
+const FileType = require("file-type");
 
 (async () => {
-	console.log(await FileType.fromFile('Unicorn.png'));
+	console.log(await FileType.fromFile("Unicorn.png"));
 	//=> {ext: 'png', mime: 'image/png'}
 })();
 ```
@@ -60,11 +60,11 @@ const FileType = require('file-type');
 Determine file type from a Buffer, which may be a portion of the beginning of a file:
 
 ```js
-const FileType = require('file-type');
-const readChunk = require('read-chunk');
+const FileType = require("file-type");
+const readChunk = require("read-chunk");
 
 (async () => {
-	const buffer = readChunk.sync('Unicorn.png', 0, 4100);
+	const buffer = readChunk.sync("Unicorn.png", 0, 4100);
 
 	console.log(await FileType.fromBuffer(buffer));
 	//=> {ext: 'png', mime: 'image/png'}
@@ -74,25 +74,24 @@ const readChunk = require('read-chunk');
 Determine file type from a stream:
 
 ```js
-const fs = require('fs');
-const FileType = require('file-type');
+const fs = require("fs");
+const FileType = require("file-type");
 
 (async () => {
-	const stream = fs.createReadStream('Unicorn.mp4');
+	const stream = fs.createReadStream("Unicorn.mp4");
 
 	console.log(await FileType.fromStream(stream));
 	//=> {ext: 'mp4', mime: 'video/mp4'}
-}
-)();
+})();
 ```
 
 The stream method can also be used to read from a remote location:
 
 ```js
-const got = require('got');
-const FileType = require('file-type');
+const got = require("got");
+const FileType = require("file-type");
 
-const url = 'https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg';
+const url = "https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg";
 
 (async () => {
 	const stream = got.stream(url);
@@ -105,13 +104,13 @@ const url = 'https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg';
 Another stream example:
 
 ```js
-const stream = require('stream');
-const fs = require('fs');
-const crypto = require('crypto');
-const FileType = require('file-type');
+const stream = require("stream");
+const fs = require("fs");
+const crypto = require("crypto");
+const FileType = require("file-type");
 
 (async () => {
-	const read = fs.createReadStream('encrypted.enc');
+	const read = fs.createReadStream("encrypted.enc");
 	const decipher = crypto.createDecipheriv(alg, key, iv);
 
 	const fileTypeStream = await FileType.stream(stream.pipeline(read, decipher));
@@ -119,7 +118,9 @@ const FileType = require('file-type');
 	console.log(fileTypeStream.fileType);
 	//=> {ext: 'mov', mime: 'video/quicktime'}
 
-	const write = fs.createWriteStream(`decrypted.${fileTypeStream.fileType.ext}`);
+	const write = fs.createWriteStream(
+		`decrypted.${fileTypeStream.fileType.ext}`
+	);
 	fileTypeStream.pipe(write);
 })();
 ```
@@ -127,9 +128,9 @@ const FileType = require('file-type');
 #### Browser
 
 ```js
-const FileType = require('file-type/browser');
+const FileType = require("file-type/browser");
 
-const url = 'https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg';
+const url = "https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg";
 
 (async () => {
 	const response = await fetch(url);
@@ -141,12 +142,12 @@ const url = 'https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg';
 ```
 
 ```js
-const FileType = require('file-type/browser');
+const FileType = require("file-type/browser");
 
 (async () => {
 	const blob = new Blob(['<?xml version="1.0" encoding="ISO-8859-1" ?>'], {
-		type: 'plain/text',
-		endings: 'native'
+		type: "plain/text",
+		endings: "native"
 	});
 
 	console.log(await FileType.fromBlob(blob));
@@ -160,7 +161,7 @@ const FileType = require('file-type/browser');
 
 Detect the file type of a `Buffer`, `Uint8Array`, or `ArrayBuffer`.
 
-The file type is detected by checking the [magic number](https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files) of the buffer.
+The file type is detected by checking the [magic number](<https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files>) of the buffer.
 
 If file access is available, it is recommended to use `FileType.fromFile()` instead.
 
@@ -181,7 +182,7 @@ A buffer representing file data. It works best if the buffer contains the entire
 
 Detect the file type of a file path.
 
-The file type is detected by checking the [magic number](https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files) of the buffer.
+The file type is detected by checking the [magic number](<https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files>) of the buffer.
 
 Returns a `Promise` for an object with the detected file type and MIME type:
 
@@ -200,7 +201,7 @@ The file path to parse.
 
 Detect the file type of a Node.js [readable stream](https://nodejs.org/api/stream.html#stream_class_stream_readable).
 
-The file type is detected by checking the [magic number](https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files) of the buffer.
+The file type is detected by checking the [magic number](<https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files>) of the buffer.
 
 Returns a `Promise` for an object with the detected file type and MIME type:
 
@@ -230,13 +231,14 @@ Returns a `Promise` for an object with the detected file type and MIME type:
 
 Or `undefined` when there is no match.
 
-An example is [`@tokenizer/http`](https://github.com/Borewit/tokenizer-http), which requests data using [HTTP-range-requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests). A difference with a conventional stream and the [*tokenizer*](https://github.com/Borewit/strtok3#tokenizer), is that it can *ignore* (seek, fast-forward) in the stream. For example, you may only need and read the first 6 bytes, and the last 128 bytes, which may be an advantage in case reading the entire file would take longer.
+An example is [`@tokenizer/http`](https://github.com/Borewit/tokenizer-http), which requests data using [HTTP-range-requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests). A difference with a conventional stream and the [_tokenizer_](https://github.com/Borewit/strtok3#tokenizer), is that it can _ignore_ (seek, fast-forward) in the stream. For example, you may only need and read the first 6 bytes, and the last 128 bytes, which may be an advantage in case reading the entire file would take longer.
 
 ```js
-const {makeTokenizer} = require('@tokenizer/http');
-const FileType = require('file-type');
+const { makeTokenizer } = require("@tokenizer/http");
+const FileType = require("file-type");
 
-const audioTrackUrl = 'https://test-audio.netlify.com/Various%20Artists%20-%202009%20-%20netBloc%20Vol%2024_%20tiuqottigeloot%20%5BMP3-V2%5D/01%20-%20Diablo%20Swing%20Orchestra%20-%20Heroines.mp3';
+const audioTrackUrl =
+	"https://test-audio.netlify.com/Various%20Artists%20-%202009%20-%20netBloc%20Vol%2024_%20tiuqottigeloot%20%5BMP3-V2%5D/01%20-%20Diablo%20Swing%20Orchestra%20-%20Heroines.mp3";
 
 (async () => {
 	const httpTokenizer = await makeTokenizer(audioTrackUrl);
@@ -250,9 +252,9 @@ const audioTrackUrl = 'https://test-audio.netlify.com/Various%20Artists%20-%2020
 Or use [`@tokenizer/s3`](https://github.com/Borewit/tokenizer-s3) to determine the file type of a file stored on [Amazon S3](https://aws.amazon.com/s3):
 
 ```js
-const FileType = require('file-type');
-const S3 = require('aws-sdk/clients/s3');
-const {makeTokenizer} = require('@tokenizer/s3');
+const FileType = require("file-type");
+const S3 = require("aws-sdk/clients/s3");
+const { makeTokenizer } = require("@tokenizer/s3");
 
 (async () => {
 	// Initialize the S3 client
@@ -260,8 +262,8 @@ const {makeTokenizer} = require('@tokenizer/s3');
 
 	// Initialize the S3 tokenizer.
 	const s3Tokenizer = await makeTokenizer(s3, {
-		Bucket: 'affectlab',
-		Key: '1min_35sec.mp4'
+		Bucket: "affectlab",
+		Key: "1min_35sec.mp4"
 	});
 
 	// Figure out what kind of file it is.
@@ -284,7 +286,7 @@ Detect the file type of a readable stream.
 
 Returns a `Promise` which resolves to the original readable stream argument, but with an added `fileType` property, which is an object like the one returned from `FileType.fromFile()`.
 
-*Note:* This method is only available using Node.js.
+_Note:_ This method is only available using Node.js.
 
 #### readableStream
 
@@ -308,7 +310,7 @@ Returns a set of supported MIME types.
 - [`gif`](https://en.wikipedia.org/wiki/GIF) - Graphics Interchange Format
 - [`webp`](https://en.wikipedia.org/wiki/WebP) - Web Picture format
 - [`flif`](https://en.wikipedia.org/wiki/Free_Lossless_Image_Format) - Free Lossless Image Format
-- [`xcf`](https://en.wikipedia.org/wiki/XCF_(file_format)) - eXperimental Computing Facility
+- [`xcf`](<https://en.wikipedia.org/wiki/XCF_(file_format)>) - eXperimental Computing Facility
 - [`cr2`](https://fileinfo.com/extension/cr2) - Canon Raw image file (v2)
 - [`cr3`](https://fileinfo.com/extension/cr3) - Canon Raw image file (v3)
 - [`orf`](https://en.wikipedia.org/wiki/ORF_format) - Olympus Raw image file
@@ -323,9 +325,9 @@ Returns a set of supported MIME types.
 - [`jxr`](https://en.wikipedia.org/wiki/JPEG_XR) - Joint Photographic Experts Group extended range
 - [`psd`](https://en.wikipedia.org/wiki/Adobe_Photoshop#File_format) - Adobe Photoshop document
 - [`indd`](https://en.wikipedia.org/wiki/Adobe_InDesign#File_format) - Adobe InDesign document
-- [`zip`](https://en.wikipedia.org/wiki/Zip_(file_format)) - Archive file
-- [`tar`](https://en.wikipedia.org/wiki/Tar_(computing)#File_format) - Tarball archive file
-- [`rar`](https://en.wikipedia.org/wiki/RAR_(file_format)) - Archive file
+- [`zip`](<https://en.wikipedia.org/wiki/Zip_(file_format)>) - Archive file
+- [`tar`](<https://en.wikipedia.org/wiki/Tar_(computing)#File_format>) - Tarball archive file
+- [`rar`](<https://en.wikipedia.org/wiki/RAR_(file_format)>) - Archive file
 - [`gz`](https://en.wikipedia.org/wiki/Gzip) - Archive file
 - [`bz2`](https://en.wikipedia.org/wiki/Bzip2) - Archive file
 - [`zst`](https://en.wikipedia.org/wiki/Zstandard) - Archive file
@@ -347,7 +349,7 @@ Returns a set of supported MIME types.
 - [`oga`](https://en.wikipedia.org/wiki/Ogg) - Audio file
 - [`spx`](https://en.wikipedia.org/wiki/Ogg) - Audio file
 - [`ogx`](https://en.wikipedia.org/wiki/Ogg) - Audio file
-- [`opus`](https://en.wikipedia.org/wiki/Opus_(audio_format)) - Audio file
+- [`opus`](<https://en.wikipedia.org/wiki/Opus_(audio_format)>) - Audio file
 - [`flac`](https://en.wikipedia.org/wiki/FLAC) - Free Lossless Audio Codec
 - [`wav`](https://en.wikipedia.org/wiki/WAV) - Waveform Audio file
 - [`qcp`](https://en.wikipedia.org/wiki/QCP) - Tagged and chunked data
@@ -363,7 +365,7 @@ Returns a set of supported MIME types.
 - [`eot`](https://en.wikipedia.org/wiki/Embedded_OpenType) - Embedded OpenType font
 - [`ttf`](https://en.wikipedia.org/wiki/TrueType) - TrueType font
 - [`otf`](https://en.wikipedia.org/wiki/OpenType) - OpenType font
-- [`ico`](https://en.wikipedia.org/wiki/ICO_(file_format)) - Windows icon file
+- [`ico`](<https://en.wikipedia.org/wiki/ICO_(file_format)>) - Windows icon file
 - [`flv`](https://en.wikipedia.org/wiki/Flash_Video) - Flash video
 - [`ps`](https://en.wikipedia.org/wiki/Postscript) - Postscript
 - [`xz`](https://en.wikipedia.org/wiki/Xz) - Compressed file
@@ -371,9 +373,9 @@ Returns a set of supported MIME types.
 - [`nes`](https://fileinfo.com/extension/nes) - Nintendo NES ROM
 - [`crx`](https://developer.chrome.com/extensions/crx) - Google Chrome extension
 - [`xpi`](https://en.wikipedia.org/wiki/XPInstall) - XPInstall file
-- [`cab`](https://en.wikipedia.org/wiki/Cabinet_(file_format)) - Cabinet file
-- [`deb`](https://en.wikipedia.org/wiki/Deb_(file_format)) - Debian package
-- [`ar`](https://en.wikipedia.org/wiki/Ar_(Unix)) - Archive file
+- [`cab`](<https://en.wikipedia.org/wiki/Cabinet_(file_format)>) - Cabinet file
+- [`deb`](<https://en.wikipedia.org/wiki/Deb_(file_format)>) - Debian package
+- [`ar`](<https://en.wikipedia.org/wiki/Ar_(Unix)>) - Archive file
 - [`rpm`](https://fileinfo.com/extension/rpm) - Red Hat Package Manager file
 - [`Z`](https://fileinfo.com/extension/z) - Unix Compressed File
 - [`lz`](https://en.wikipedia.org/wiki/Lzip) - Arhive file
@@ -396,7 +398,7 @@ Returns a set of supported MIME types.
 - [`odp`](https://en.wikipedia.org/wiki/OpenDocument) - OpenDocument for presentations
 - [`xml`](https://en.wikipedia.org/wiki/XML) - eXtensible Markup Language
 - [`heic`](https://nokiatech.github.io/heif/technical.html) - High Efficiency Image File Format
-- [`cur`](https://en.wikipedia.org/wiki/ICO_(file_format)) - Icon file
+- [`cur`](<https://en.wikipedia.org/wiki/ICO_(file_format)>) - Icon file
 - [`ktx`](https://www.khronos.org/opengles/sdk/tools/KTX/file_format_spec/) - OpenGL and OpenGL ES textures
 - [`ape`](https://en.wikipedia.org/wiki/Monkey%27s_Audio) - Monkey's Audio
 - [`wv`](https://en.wikipedia.org/wiki/WavPack) - WavPack
@@ -414,7 +416,7 @@ Returns a set of supported MIME types.
 - [`ac3`](https://www.atsc.org/standard/a522012-digital-audio-compression-ac-3-e-ac-3-standard-12172012/) - ATSC A/52 Audio File
 - [`3gp`](https://en.wikipedia.org/wiki/3GP_and_3G2#3GP) - Multimedia container format defined by the Third Generation Partnership Project (3GPP) for 3G UMTS multimedia services
 - [`3g2`](https://en.wikipedia.org/wiki/3GP_and_3G2#3G2) - Multimedia container format defined by the 3GPP2 for 3G CDMA2000 multimedia services
-- [`m4v`](https://en.wikipedia.org/wiki/M4V) -  MPEG-4 Visual bitstreams
+- [`m4v`](https://en.wikipedia.org/wiki/M4V) - MPEG-4 Visual bitstreams
 - [`m4p`](https://en.wikipedia.org/wiki/MPEG-4_Part_14#Filename_extensions) - MPEG-4 files with audio streams encrypted by FairPlay Digital Rights Management as were sold through the iTunes Store
 - [`m4a`](https://en.wikipedia.org/wiki/M4A) - Audio-only MPEG-4 files
 - [`m4b`](https://en.wikipedia.org/wiki/M4B) - Audiobook and podcast MPEG-4 files, which also contain metadata including chapter markers, images, and hyperlinks
@@ -431,24 +433,22 @@ Returns a set of supported MIME types.
 - [`xm`](https://wiki.openmpt.org/Manual:_Module_formats#The_FastTracker_2_format_.28.xm.29) - Audio module format: FastTracker 2
 - [`ai`](https://en.wikipedia.org/wiki/Adobe_Illustrator_Artwork) - Adobe Illustrator Artwork
 - [`skp`](https://en.wikipedia.org/wiki/SketchUp) - SketchUp
-- [`avif`](https://en.wikipedia.org/wiki/AV1#AV1_Image_File_Format_(AVIF)) - AV1 Image File Format
+- [`avif`](<https://en.wikipedia.org/wiki/AV1#AV1_Image_File_Format_(AVIF)>) - AV1 Image File Format
 - [`eps`](https://en.wikipedia.org/wiki/Encapsulated_PostScript) - Encapsulated PostScript
-- [`lzh`](https://en.wikipedia.org/wiki/LHA_(file_format)) - LZH archive
+- [`lzh`](<https://en.wikipedia.org/wiki/LHA_(file_format)>) - LZH archive
 - [`pgp`](https://en.wikipedia.org/wiki/Pretty_Good_Privacy) - Pretty Good Privacy
 - [`asar`](https://github.com/electron/asar#format) - Archive format primarily used to enclose Electron applications
-- [`stl`](https://en.wikipedia.org/wiki/STL_(file_format)) - Standard Tesselated Geometry File Format (ASCII only)
+- [`stl`](<https://en.wikipedia.org/wiki/STL_(file_format)>) - Standard Tesselated Geometry File Format (ASCII only)
 - [`chm`](https://en.wikipedia.org/wiki/Microsoft_Compiled_HTML_Help) - Microsoft Compiled HTML Help
 - [`3mf`](https://en.wikipedia.org/wiki/3D_Manufacturing_Format) - 3D Manufacturing Format
 - [`jxl`](https://en.wikipedia.org/wiki/JPEG_XL) - JPEG XL image format
+- [`dwg`](https://ru.wikipedia.org/wiki/DWG) - a proprietary binary file format used for storing two- and three- dimensional design data and metadata. It is the native format for several CAD packages including DraftSight, AutoCAD, ZWCAD, IntelliCAD (and its variants), Caddie and Open Design Alliance compliant applications.
 
-*Pull requests are welcome for additional commonly used file types.*
+_Pull requests are welcome for additional commonly used file types._
 
 The following file types will not be accepted:
-- [MS-CFB: Microsoft Compound File Binary File Format based formats](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-cfb/53989ce4-7b05-4f8d-829b-d08d6148375b), too old and difficult to parse:
-	- `.doc` - Microsoft Word 97-2003 Document
-	- `.xls` - Microsoft Excel 97-2003 Document
-	- `.ppt` - Microsoft PowerPoint97-2003 Document
-	- `.msi` - Microsoft Windows Installer
+
+- [MS-CFB: Microsoft Compound File Binary File Format based formats](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-cfb/53989ce4-7b05-4f8d-829b-d08d6148375b), too old and difficult to parse: - `.doc` - Microsoft Word 97-2003 Document - `.xls` - Microsoft Excel 97-2003 Document - `.ppt` - Microsoft PowerPoint97-2003 Document - `.msi` - Microsoft Windows Installer
 - `.csv` - [Reason.](https://github.com/sindresorhus/file-type/issues/264#issuecomment-568439196)
 - `.svg` - Detecting it requires a full-blown parser. Check out [`is-svg`](https://github.com/sindresorhus/is-svg) for something that mostly works.
 

@@ -139,7 +139,8 @@ module.exports = {
 		'3mf',
 		'zst',
 		'jxl',
-		'vcf'
+		'vcf',
+		'dwg'
 	],
 	mimeTypes: [
 		'image/jpeg',
@@ -274,6 +275,7 @@ module.exports = {
 		'application/vnd.ms-htmlhelp',
 		'model/3mf',
 		'image/jxl',
-		'application/zstd'
+		'application/zstd',
+		'image/vnd.dwg'
 	]
 };

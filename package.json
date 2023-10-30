@@ -185,7 +185,8 @@
 		"3mf",
 		"zst",
 		"jxl",
-		"vcf"
+		"vcf",
+		"dwg"
 	],
 	"devDependencies": {
 		"@types/node": "^13.1.4",
