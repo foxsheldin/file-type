@@ -186,7 +186,8 @@
 		"zst",
 		"jxl",
 		"vcf",
-		"dwg"
+		"dwg",
+		"obj"
 	],
 	"devDependencies": {
 		"@types/node": "^13.1.4",

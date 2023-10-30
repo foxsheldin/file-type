@@ -1413,6 +1413,13 @@ async function _fromTokenizer(tokenizer) {
 		}
 	}
 
+	if (checkString('3ds Max Wavefront OBJ Exporter', { offset: 2 })) {
+		return {
+			ext: 'obj',
+			mime: 'model/obj'
+		}
+	}
+
 	if (
 		checkString('MC0.0') ||
 		checkString('AC1.2') ||
