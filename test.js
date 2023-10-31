@@ -212,6 +212,10 @@ const names = {
 		'fixture-1',
 		'fixture-2',
 		'fixture-3'
+	],
+	max: [
+		'fixture-1',
+		'fixture-2'
 	]
 };
 
