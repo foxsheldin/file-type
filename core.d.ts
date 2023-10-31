@@ -144,7 +144,8 @@ declare namespace core {
 		| 'vcf'
 		| 'dwg'
 		| 'obj'
-		| '3ds';
+		| '3ds'
+		| 'max';
 
 	type MimeType =
 		| 'image/jpeg'
@@ -282,7 +283,8 @@ declare namespace core {
 		| 'application/zstd'
 		| 'image/vnd.dwg'
 		| 'model/obj'
-		| 'image/x-3ds';
+		| 'image/x-3ds'
+		| 'application/octet-stream';
 
 	interface FileTypeResult {
 		/**

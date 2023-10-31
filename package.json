@@ -188,7 +188,8 @@
 		"vcf",
 		"dwg",
 		"obj",
-		"3ds"
+		"3ds",
+		"max"
 	],
 	"devDependencies": {
 		"@types/node": "^13.1.4",

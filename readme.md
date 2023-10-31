@@ -445,6 +445,7 @@ Returns a set of supported MIME types.
 - [`dwg`](https://ru.wikipedia.org/wiki/DWG) - a proprietary binary file format used for storing two- and three- dimensional design data and metadata. It is the native format for several CAD packages including DraftSight, AutoCAD, ZWCAD, IntelliCAD (and its variants), Caddie and Open Design Alliance compliant applications
 - [`obj`](https://ru.wikipedia.org/wiki/Wavefront_.obj_file) - a geometry definition file format first developed by Wavefront Technologies for its Advanced Visualizer animation package. The file format is open and has been adopted by other 3D graphics application vendors
 - [`3ds`](https://en.wikipedia.org/wiki/.3ds) - one of the file formats used by the Autodesk 3ds Max 3D modeling, animation and rendering software
+- [`max`](https://fileinfo.com/extension/max) -A MAX file is a three-dimensional scene created by Autodesk 3ds Max, a 3D modeling, animation, and rendering application. It contains one or more 3D models, including wireframes, textures, lighting effects, shading, animations, and other 3D design elements.
 
 _Pull requests are welcome for additional commonly used file types._
 

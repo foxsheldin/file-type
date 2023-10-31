@@ -142,7 +142,8 @@ module.exports = {
 		'vcf',
 		'dwg',
 		'obj',
-		'3ds'
+		'3ds',
+		'max'
 	],
 	mimeTypes: [
 		'image/jpeg',
@@ -280,6 +281,7 @@ module.exports = {
 		'application/zstd',
 		'image/vnd.dwg',
 		'model/obj',
-		'image/x-3ds'
+		'image/x-3ds',
+		'application/octet-stream'
 	]
 };
