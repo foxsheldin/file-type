@@ -2,7 +2,7 @@ import path from 'path';
 import fs from 'fs';
 import stream from 'stream';
 import test from 'ava';
-import {readableNoopStream} from 'noop-stream';
+import { readableNoopStream } from 'noop-stream';
 import FileType from '.';
 
 const supported = require('./supported');
@@ -199,6 +199,10 @@ const names = {
 		'fixture-smallest', // PDF saved from Adobe Illustrator, using the preset "smallest PDF"
 		'fixture-fast-web', // PDF saved from Adobe Illustrator, using the default "[Illustrator Default"] preset, but enabling "Optimize for Fast Web View"
 		'fixture-printed' // PDF printed from Adobe Illustrator, but with a PDF printer.
+	],
+	dxf: [
+		'fixture',
+		'fixture-2'
 	]
 };
 
@@ -215,13 +219,13 @@ const failingFixture = [
 ];
 
 async function checkBufferLike(t, type, bufferLike) {
-	const {ext, mime} = await FileType.fromBuffer(bufferLike) || {};
+	const { ext, mime } = await FileType.fromBuffer(bufferLike) || {};
 	t.is(ext, type);
 	t.is(typeof mime, 'string');
 }
 
 async function checkFile(t, type, filePath) {
-	const {ext, mime} = await FileType.fromFile(filePath) || {};
+	const { ext, mime } = await FileType.fromFile(filePath) || {};
 	t.is(ext, type);
 	t.is(typeof mime, 'string');
 }
@@ -375,7 +379,7 @@ test('validate the input argument type', async t => {
 test('validate the repo has all extensions and mimes in sync', t => {
 	// File: core.js (base truth)
 	function readIndexJS() {
-		const core = fs.readFileSync('core.js', {encoding: 'utf8'});
+		const core = fs.readFileSync('core.js', { encoding: 'utf8' });
 		const extArray = core.match(/(?<=ext:\s')(.*)(?=',)/g);
 		const mimeArray = core.match(/(?<=mime:\s')(.*)(?=')/g);
 		const exts = new Set(extArray);
@@ -389,7 +393,7 @@ test('validate the repo has all extensions and mimes in sync', t => {
 
 	// File: core.d.ts
 	function readIndexDTS() {
-		const core = fs.readFileSync('core.d.ts', {encoding: 'utf8'});
+		const core = fs.readFileSync('core.d.ts', { encoding: 'utf8' });
 		const matches = core.match(/(?<=\|\s')(.*)(?=')/g);
 		const extArray = [];
 		const mimeArray = [];
@@ -410,8 +414,8 @@ test('validate the repo has all extensions and mimes in sync', t => {
 
 	// File: package.json
 	function readPackageJSON() {
-		const packageJson = fs.readFileSync('package.json', {encoding: 'utf8'});
-		const {keywords} = JSON.parse(packageJson);
+		const packageJson = fs.readFileSync('package.json', { encoding: 'utf8' });
+		const { keywords } = JSON.parse(packageJson);
 
 		const allowedExtras = new Set([
 			'mime',
@@ -442,7 +446,7 @@ test('validate the repo has all extensions and mimes in sync', t => {
 
 	// File: readme.md
 	function readReadmeMD() {
-		const index = fs.readFileSync('readme.md', {encoding: 'utf8'});
+		const index = fs.readFileSync('readme.md', { encoding: 'utf8' });
 		const extArray = index.match(/(?<=-\s\[`)(.*)(?=`)/g);
 		return extArray;
 	}
@@ -488,7 +492,7 @@ test('validate the repo has all extensions and mimes in sync', t => {
 	}
 
 	// Get the base truth of extensions and mimes supported from core.js
-	const {exts, mimes} = readIndexJS();
+	const { exts, mimes } = readIndexJS();
 
 	// Validate all extensions
 	const filesWithExtensions = {
@@ -526,7 +530,7 @@ class BufferedStream extends stream.Readable {
 		this.push(null);
 	}
 
-	_read() {}
+	_read() { }
 }
 
 test('odd file sizes', async t => {
@@ -546,5 +550,5 @@ test('odd file sizes', async t => {
 
 test('corrupt MKV throws', async t => {
 	const filePath = path.join(__dirname, 'fixture/fixture-corrupt.mkv');
-	await t.throwsAsync(FileType.fromFile(filePath), {message: /out of range/});
+	await t.throwsAsync(FileType.fromFile(filePath), { message: /out of range/ });
 });

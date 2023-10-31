@@ -143,7 +143,8 @@ module.exports = {
 		'dwg',
 		'obj',
 		'3ds',
-		'max'
+		'max',
+		'dxf'
 	],
 	mimeTypes: [
 		'image/jpeg',
@@ -282,6 +283,7 @@ module.exports = {
 		'image/vnd.dwg',
 		'model/obj',
 		'image/x-3ds',
-		'application/octet-stream'
+		'application/octet-stream',
+		'image/vnd.dxf'
 	]
 };

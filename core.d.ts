@@ -145,7 +145,8 @@ declare namespace core {
 		| 'dwg'
 		| 'obj'
 		| '3ds'
-		| 'max';
+		| 'max'
+		| 'dxf';
 
 	type MimeType =
 		| 'image/jpeg'
@@ -284,7 +285,8 @@ declare namespace core {
 		| 'image/vnd.dwg'
 		| 'model/obj'
 		| 'image/x-3ds'
-		| 'application/octet-stream';
+		| 'application/octet-stream'
+		| 'image/vnd.dxf';
 
 	interface FileTypeResult {
 		/**

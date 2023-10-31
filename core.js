@@ -1469,6 +1469,21 @@ async function _fromTokenizer(tokenizer) {
 			mime: 'image/vnd.dwg'
 		}
 	}
+
+	// Dynamic file values
+
+	let initialOffset = 0;
+
+	while (initialOffset < 64) {
+		if (checkString('\nHEADER\n', { offset: initialOffset }) || checkString('\x0d\nHEADER\x0d\n', { offset: initialOffset })) {
+			return {
+				ext: 'dxf',
+				mime: 'image/vnd.dxf'
+			}
+		}
+
+		initialOffset++;
+	}
 }
 
 const stream = readableStream => new Promise((resolve, reject) => {
