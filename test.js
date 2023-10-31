@@ -203,6 +203,10 @@ const names = {
 	dxf: [
 		'fixture',
 		'fixture-2'
+	],
+	rfa: [
+		'fixture-1',
+		'fixture-2'
 	]
 };
 

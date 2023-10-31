@@ -146,7 +146,8 @@ declare namespace core {
 		| 'obj'
 		| '3ds'
 		| 'max'
-		| 'dxf';
+		| 'dxf'
+		| 'rfa';
 
 	type MimeType =
 		| 'image/jpeg'

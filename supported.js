@@ -144,7 +144,8 @@ module.exports = {
 		'obj',
 		'3ds',
 		'max',
-		'dxf'
+		'dxf',
+		'rfa'
 	],
 	mimeTypes: [
 		'image/jpeg',

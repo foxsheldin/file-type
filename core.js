@@ -1207,6 +1207,25 @@ async function _fromTokenizer(tokenizer) {
 
 	if (check([0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1])) {
 		// Detected Microsoft Compound File Binary File (MS-CFB) Format.
+		await tokenizer.peekBuffer(buffer, { position: 0x1100, length: 10, mayBeLess: true })
+
+		if (checkString('R\x00e\x00v\x00i\x00t\x00')) {
+			return {
+				ext: 'rfa',
+				mime: 'application/octet-stream'
+			}
+		}
+
+		await tokenizer.peekBuffer(buffer, { position: 0x2100, length: 10, mayBeLess: true })
+
+		if (checkString('R\x00e\x00v\x00i\x00t\x00')) {
+			return {
+				ext: 'rfa',
+				mime: 'application/octet-stream'
+			}
+		}
+
+
 		await tokenizer.peekBuffer(buffer, { position: 0x4056, length: 74, mayBeLess: true })
 
 		if (check([
