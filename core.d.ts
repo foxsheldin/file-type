@@ -147,7 +147,8 @@ declare namespace core {
 		| '3ds'
 		| 'max'
 		| 'dxf'
-		| 'rfa';
+		| 'rfa'
+		| 'svg';
 
 	type MimeType =
 		| 'image/jpeg'
@@ -287,7 +288,8 @@ declare namespace core {
 		| 'model/obj'
 		| 'image/x-3ds'
 		| 'application/octet-stream'
-		| 'image/vnd.dxf';
+		| 'image/vnd.dxf'
+		| 'image/svg+xml';
 
 	interface FileTypeResult {
 		/**

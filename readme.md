@@ -448,6 +448,7 @@ Returns a set of supported MIME types.
 - [`max`](https://fileinfo.com/extension/max) - A MAX file is a three-dimensional scene created by Autodesk 3ds Max, a 3D modeling, animation, and rendering application. It contains one or more 3D models, including wireframes, textures, lighting effects, shading, animations, and other 3D design elements
 - [`dxf`](https://en.wikipedia.org/wiki/AutoCAD_DXF) - a CAD data file format developed by Autodesk for enabling data interoperability between AutoCAD and other programs
 - [`rfa`](https://en.wikipedia.org/wiki/Autodesk_Revit) - Autodesk Revit file format
+- [`svg`](https://en.wikipedia.org/wiki/SVG) - Scalable Vector Graphics (SVG) is an XML-based vector image format for defining two-dimensional graphics, having support for interactivity and animation
 
 _Pull requests are welcome for additional commonly used file types._
 

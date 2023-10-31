@@ -191,7 +191,8 @@
 		"3ds",
 		"max",
 		"dxf",
-		"rfa"
+		"rfa",
+		"svg"
 	],
 	"devDependencies": {
 		"@types/node": "^13.1.4",

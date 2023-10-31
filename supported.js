@@ -145,7 +145,8 @@ module.exports = {
 		'3ds',
 		'max',
 		'dxf',
-		'rfa'
+		'rfa',
+		'svg'
 	],
 	mimeTypes: [
 		'image/jpeg',
@@ -285,6 +286,7 @@ module.exports = {
 		'model/obj',
 		'image/x-3ds',
 		'application/octet-stream',
-		'image/vnd.dxf'
+		'image/vnd.dxf',
+		'image/svg+xml'
 	]
 };

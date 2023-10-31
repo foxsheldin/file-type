@@ -207,6 +207,11 @@ const names = {
 	rfa: [
 		'fixture-1',
 		'fixture-2'
+	],
+	svg: [
+		'fixture-1',
+		'fixture-2',
+		'fixture-3'
 	]
 };
 

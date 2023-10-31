@@ -904,6 +904,26 @@ async function _fromTokenizer(tokenizer) {
 		};
 	}
 
+	await tokenizer.peekBuffer(buffer, { length: 282, mayBeLess: true });
+
+	let svgInitialOffset = 0;
+	while (svgInitialOffset <= 256) {
+		if (
+			checkString('<!DOCTYPE svg', { offset: svgInitialOffset }) ||
+			checkString('<!-- Created with Inkscape', { offset: svgInitialOffset }) ||
+			checkString('<svg', { offset: svgInitialOffset })
+		) {
+			return {
+				ext: 'svg',
+				mime: 'image/svg+xml'
+			}
+		}
+
+		svgInitialOffset++;
+	}
+
+	await tokenizer.peekBuffer(buffer, { length: bytesRead, mayBeLess: true });
+
 	if (checkString('<?xml ')) {
 		return {
 			ext: 'xml',
@@ -1491,17 +1511,17 @@ async function _fromTokenizer(tokenizer) {
 
 	// Dynamic file values
 
-	let initialOffset = 0;
+	let dxfInitialOffset = 0;
 
-	while (initialOffset < 64) {
-		if (checkString('\nHEADER\n', { offset: initialOffset }) || checkString('\x0d\nHEADER\x0d\n', { offset: initialOffset })) {
+	while (dxfInitialOffset < 64) {
+		if (checkString('\nHEADER\n', { offset: dxfInitialOffset }) || checkString('\x0d\nHEADER\x0d\n', { offset: dxfInitialOffset })) {
 			return {
 				ext: 'dxf',
 				mime: 'image/vnd.dxf'
 			}
 		}
 
-		initialOffset++;
+		dxfInitialOffset++;
 	}
 }
 
